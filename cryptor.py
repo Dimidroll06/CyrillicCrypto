@@ -21,3 +21,7 @@ def crypt(txt):
         else:
             newtxt += i
     return newtxt
+print('crypt: 1; decrypt: 2')
+isCrypt = int(input())
+print('text format "n: text"\n')
+print(crypt(input()) if isCrypt==1 else decrypt(input))
