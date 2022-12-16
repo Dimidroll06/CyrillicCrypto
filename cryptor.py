@@ -16,12 +16,19 @@ def crypt(txt):
     newtxt = ''
     for i in txt.lower():
         # if i in newLetters: newtxt += newLetters[i]
-        if i in letters:
-            newtxt += letters[letters.index(i) + n]
+        if i in letters: newtxt += letters[(letters.index(i)+ n)%len(letters)]
         else:
             newtxt += i
     return newtxt
-print('crypt: 1; decrypt: 2')
-isCrypt = int(input())
-print('text format "n: text"\n')
-print(crypt(input()) if isCrypt==1 else decrypt(input()))
+
+def main():
+    cmd = input("Введите c/d:").lower()
+    if cmd == "c" or cmd == "с":
+        print(crypt(input()))
+    elif cmd == "d" or cmd == "в":
+        print(decrypt(input()))
+    main()
+
+print("\bCryptor and decryptor \n-------------------- \nпример: '2: Некоторый текст на русском' \n--------------------")
+
+main()
